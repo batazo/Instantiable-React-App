@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Példányosítható React App (dev)</title>
+    <link rel="stylesheet" href="/demo.css" />
+  </head>
+  <body>
+    <h1>Példányosítható React counter — fejlesztői mód</h1>
+    <div class="demo-grid">
+      <section class="demo-card">
+        <div id="app-one"></div>
+        <div class="controls" data-app="app_one">
+          <button type="button" data-action="decrease">decrease()</button>
+          <button type="button" data-action="increase">increase()</button>
+          <input type="number" value="10" aria-label="Új érték" />
+          <button type="button" data-action="set">setCounter()</button>
+          <button type="button" data-action="log">getState() → console</button>
+          <pre data-state></pre>
+        </div>
+      </section>
+      <article class="demo-card">
+        <div id="app-two"></div>
+        <div class="controls" data-app="app_two">
+          <button type="button" data-action="decrease">decrease()</button>
+          <button type="button" data-action="increase">increase()</button>
+          <input type="number" value="10" aria-label="Új érték" />
+          <button type="button" data-action="set">setCounter()</button>
+          <button type="button" data-action="log">getState() → console</button>
+          <pre data-state></pre>
+        </div>
+      </article>
+    </div>
+
+    <!-- Dev: a forrásból tölti be a window.ReactApp-ot (HMR-rel); a module scriptek sorrendben futnak. -->
+    <script type="module" src="/src/dev.ts"></script>
+    <script type="module" src="/demo.js"></script>
+  </body>
+</html>

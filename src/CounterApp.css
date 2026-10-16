@@ -1,0 +1,54 @@
+.ra-counter {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border: 1px solid #d0d4dc;
+  border-radius: 12px;
+  background: #fff;
+  color: #1f2430;
+  font-family: system-ui, sans-serif;
+}
+
+.ra-counter__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ra-counter__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ra-counter__row button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.ra-counter__row button:hover {
+  background: #4338ca;
+}
+
+.ra-counter__value {
+  min-width: 3ch;
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.ra-counter__reset {
+  border: none;
+  background: none;
+  color: #4f46e5;
+  cursor: pointer;
+  text-decoration: underline;
+}
