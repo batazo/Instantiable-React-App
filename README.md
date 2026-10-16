@@ -3,6 +3,8 @@
 Egy React (Vite + TypeScript) counter app, ami egyetlen JS fájlba (`dist/react-app.js`) buildelődik,
 és natív JS-ből tetszőleges számú, egymástól független példányban renderelhető különböző HTML elemekbe.
 
+**Élő demó (GitHub Pages):** https://batazo.github.io/Instantiable-React-App/
+
 ## Betöltés
 
 ### CDN-ről (jsDelivr)
@@ -46,7 +48,8 @@ Másold a `dist/react-app.js` fájlt a saját projektedbe, és töltsd be egy si
 </script>
 ```
 
-Ez a példa egy futtatható oldalként is megtalálható: [example/index.html](example/index.html).
+Ez a példa egy futtatható oldalként is megtalálható: [example/index.html](example/index.html)
+([élőben a GitHub Pages-en](https://batazo.github.io/Instantiable-React-App/example/)).
 Mivel a bundle-t CDN-ről tölti, build és szerver nélkül, közvetlenül a böngészőben megnyitható.
 
 ### `ReactApp.init(options)`
