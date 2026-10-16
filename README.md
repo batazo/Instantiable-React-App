@@ -3,13 +3,35 @@
 Egy React (Vite + TypeScript) counter app, ami egyetlen JS fájlba (`dist/react-app.js`) buildelődik,
 és natív JS-ből tetszőleges számú, egymástól független példányban renderelhető különböző HTML elemekbe.
 
+## Betöltés
+
+### CDN-ről (jsDelivr)
+
+A build-elt bundle a repóban van (`dist/react-app.js`), így közvetlenül a GitHubról, a jsDelivr CDN-en át is betölthető:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/batazo/Instantiable-React-App@main/dist/react-app.js"></script>
+```
+
+Az `@main` mindig a legfrissebb verzióra mutat, de a jsDelivr akár 12 óráig is cache-elheti,
+így egy friss push nem feltétlenül jelenik meg azonnal. Stabil, nem változó verzióhoz add meg
+egy commit hash-ét vagy egy git tag nevét:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/batazo/Instantiable-React-App@28e7b3d/dist/react-app.js"></script>
+```
+
+### Saját tárhelyről
+
+Másold a `dist/react-app.js` fájlt a saját projektedbe, és töltsd be egy sima `<script>` taggel.
+
 ## Használat
 
 ```html
 <div id="app-one"></div>
 <section id="app-two"></section>
 
-<script src="react-app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/batazo/Instantiable-React-App@main/dist/react-app.js"></script>
 <script>
   const app_one = ReactApp.init({ counterDefault: 5 })
   app_one.render('#app-one')                          // CSS szelektor...
@@ -52,5 +74,6 @@ A komponens `useSyncExternalStore`-ral olvassa, a natív API ugyanezt a store-t 
 ## Parancsok
 
 - `yarn dev` – fejlesztői szerver HMR-rel (`index.html` → `src/dev.ts` + `public/demo.js`)
-- `yarn build` – library build: `dist/react-app.js` (IIFE, React-tel együtt)
+- `yarn build` – library build: `dist/react-app.js` (IIFE, React-tel együtt).
+  Commit előtt egy Husky pre-commit hook automatikusan lefuttatja, és a friss `dist/`-et is commitolja.
 - `yarn preview` – a build kipróbálása: nyisd meg a `/example.html` oldalt
