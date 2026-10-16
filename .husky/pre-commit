@@ -1,0 +1,4 @@
+# Commit előtt újrabuildeli a bundle-t, és a friss dist/ kimenetet is a commitba teszi.
+# Ha a build (tsc vagy vite) hibára fut, a commit megszakad.
+yarn build
+git add dist
