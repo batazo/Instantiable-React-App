@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReactApp CDN példa</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px 16px;
+        background: #f4f5f8;
+        color: #1f2430;
+        font-family: system-ui, sans-serif;
+      }
+      #app-one,
+      #app-two {
+        margin-bottom: 16px;
+      }
+      pre {
+        padding: 8px;
+        border-radius: 6px;
+        background: #1f2430;
+        color: #e6e8ef;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ReactApp – CDN-es példa</h1>
+
+    <div id="app-one"></div>
+    <section id="app-two"></section>
+
+    <pre id="log"></pre>
+
+    <script src="https://cdn.jsdelivr.net/gh/batazo/Instantiable-React-App@main/dist/react-app.js"></script>
+    <script>
+      const app_one = ReactApp.init({ counterDefault: 5 })
+      app_one.render('#app-one')                          // CSS szelektor...
+
+      const app_two = ReactApp.init({ counterDefault: 42, title: 'Második' })
+        .render(document.getElementById('app-two'))       // ...vagy DOM elem
+
+      app_one.getState()      // { counter: 5 }
+      app_one.setCounter(10)
+      app_one.increase()
+      app_one.decrease()
+
+      // Az aktuális állapotok kiírása; a gombokra kattintva is frissül.
+      const log = document.getElementById('log')
+      const showState = () => {
+        log.textContent =
+          `app_one.getState() → ${JSON.stringify(app_one.getState())}\n` +
+          `app_two.getState() → ${JSON.stringify(app_two.getState())}`
+      }
+      app_one.subscribe(showState)
+      app_two.subscribe(showState)
+      showState()
+    </script>
+  </body>
+</html>

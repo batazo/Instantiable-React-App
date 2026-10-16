@@ -46,6 +46,9 @@ Másold a `dist/react-app.js` fájlt a saját projektedbe, és töltsd be egy si
 </script>
 ```
 
+Ez a példa egy futtatható oldalként is megtalálható: [example/index.html](example/index.html).
+Mivel a bundle-t CDN-ről tölti, build és szerver nélkül, közvetlenül a böngészőben megnyitható.
+
 ### `ReactApp.init(options)`
 
 | Opció            | Típus    | Alapértelmezés | Leírás                         |
