@@ -2,13 +2,13 @@
 <html lang="hu">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Példányosítható React App (dev)</title>
-    <link rel="stylesheet" href="/demo.css" />
+    <title>Példányosítható React App</title>
+    <link rel="stylesheet" href="public/demo.css" />
   </head>
   <body>
-    <h1>Példányosítható React counter — fejlesztői mód</h1>
+    <h1>Példányosítható React counter</h1>
     <div class="demo-grid">
       <section class="demo-card">
         <div id="app-one"></div>
@@ -34,8 +34,29 @@
       </article>
     </div>
 
-    <!-- Dev: a forrásból tölti be a window.ReactApp-ot (HMR-rel); a module scriptek sorrendben futnak. -->
-    <script type="module" src="/src/dev.ts"></script>
-    <script type="module" src="/demo.js"></script>
+    <!--
+      Ugyanez az oldal két környezetben fut:
+      - yarn dev: a Vite megadja az import.meta.env.DEV-et, a ReactApp a forrásból töltődik (HMR-rel).
+      - statikus kiszolgálás (pl. GitHub Pages): nincs import.meta.env, a build-elt dist/react-app.js töltődik.
+      Utána mindkét esetben a natív public/demo.js használja a window.ReactApp-ot.
+      A relatív útvonalak miatt alkönyvtárból (/Instantiable-React-App/) kiszolgálva is működik.
+    -->
+    <script type="module">
+      const loadScript = (src) =>
+        new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = src
+          script.onload = resolve
+          script.onerror = () => reject(new Error(`Nem sikerült betölteni: ${src}`))
+          document.body.append(script)
+        })
+
+      if (import.meta.env?.DEV) {
+        await import('/src/dev.ts')
+      } else {
+        await loadScript('dist/react-app.js')
+      }
+      await loadScript('public/demo.js')
+    </script>
   </body>
 </html>
