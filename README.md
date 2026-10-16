@@ -83,3 +83,6 @@ A komponens `useSyncExternalStore`-ral olvassa, a natív API ugyanezt a store-t 
 - `yarn build` – library build: `dist/react-app.js` (IIFE, React-tel együtt).
   Commit előtt egy Husky pre-commit hook automatikusan lefuttatja, és a friss `dist/`-et is commitolja.
 - `yarn preview` – a build kipróbálása: nyisd meg a `/example.html` oldalt
+- `yarn test:live` – élő teszt a GitHub Pages oldalra (`tests/live-pages.mjs`): headless Edge/Chrome-ban
+  valódi kattintásokkal ellenőrzi a React gombokat, a natív JS API-t és a példányok függetlenségét.
+  Más címre a `BASE_URL`, más böngészőre a `BROWSER_PATH` környezeti változóval állítható.
