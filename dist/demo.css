@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  padding: 24px 16px;
+  background: #f4f5f8;
+  color: #1f2430;
+  font-family: system-ui, sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px dashed #9aa1b1;
+  border-radius: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.controls input {
+  width: 6ch;
+}
+
+.controls button,
+.controls input {
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+[data-state] {
+  margin: 0;
+  padding: 8px;
+  border-radius: 6px;
+  background: #1f2430;
+  color: #e6e8ef;
+  font-size: 0.8125rem;
+  white-space: pre-wrap;
+}
